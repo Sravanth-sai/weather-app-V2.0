@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather App about page</title>
+         <link rel="icon" href="/img/weather.png">
+<!-- Path is relative from server path given by __dirname in app.js -->
+        <link rel="stylesheet" href="./css/styles.css">
+        
+    </head>
+
+    <body>
+
+        <div class="main-content">
+            {{!-- Pass partial to html --}}
+            {{>header}} 
+            <img id="profile-pic" src="/img/robo_pic.jpeg">
+        </div>
+
+        
+        
+        {{>footer}}
+    </body>
+</html>
