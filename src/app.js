@@ -72,7 +72,7 @@ app.get("/weather", (req, res) => {
   }
   const address = req.query.address;
   let units = "m";
-  let unit = "";
+  let unit = "°C";
   if (req.query.units) {
     units = req.query.units.toLowerCase();
     if (units === "f" || units === "fahrenheit") {
