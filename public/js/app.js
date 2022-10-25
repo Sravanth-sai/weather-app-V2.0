@@ -23,20 +23,18 @@ weatherForm.addEventListener("submit", (e) => {
   messageOne.textContent = "Fetching weather...";
   forecast.textContent = null;
 
-  fetch("http://localhost:3000/weather?address=" + location).then(
-    (response) => {
-      response.json().then((data) => {
-        if (data.error) {
-          messageOne.style = `color: red;`; // display: block;`;
-          messageOne.textContent = data.error;
-        } else {
-          messageOne.setAttribute("style", "color: black; display: block;");
-          messageOne.textContent = data.location;
-          //   forecast.style = `display: block;`;
-          forecast.textContent = data.forecast;
-          // console.log(data.location + "\n" + data.forecast);
-        }
-      });
-    }
-  ); // + "&units=" + unit);
+  fetch("/weather?address=" + location).then((response) => {
+    response.json().then((data) => {
+      if (data.error) {
+        messageOne.style = `color: red;`; // display: block;`;
+        messageOne.textContent = data.error;
+      } else {
+        messageOne.setAttribute("style", "color: black; display: block;");
+        messageOne.textContent = data.location;
+        //   forecast.style = `display: block;`;
+        forecast.textContent = data.forecast;
+        // console.log(data.location + "\n" + data.forecast);
+      }
+    });
+  }); // + "&units=" + unit);
 });
