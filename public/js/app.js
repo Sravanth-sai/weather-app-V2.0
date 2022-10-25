@@ -26,6 +26,8 @@ weatherForm.addEventListener("submit", (e) => {
   fetch("/weather?address=" + location).then((response) => {
     response.json().then((data) => {
       if (data.error) {
+        search.style = `border: 1px solid red;
+                        box-shadow: 0 0 3px red`;
         messageOne.style = `color: red;`; // display: block;`;
         messageOne.textContent = data.error;
       } else {
