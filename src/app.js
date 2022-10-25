@@ -96,10 +96,17 @@ app.get("/weather", (req, res) => {
             error,
           });
         } else {
-          const { currentWeather, currentTemp, feelslike, humidity } = data;
+          const {
+            icon: weatherIcon,
+            currentWeather,
+            currentTemp,
+            feelslike,
+            humidity,
+          } = data;
           res.send({
             address,
             location,
+            weatherIcon,
             forecast:
               currentWeather +
               ". It is currently " +

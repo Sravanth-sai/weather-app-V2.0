@@ -10,6 +10,7 @@ const weatherForm = document.querySelector("form");
 const search = document.querySelector(".form-input");
 const messageOne = document.querySelector("#message-one");
 const forecast = document.querySelector("#forecast");
+const weatherIcon = document.querySelector("#weather-icon");
 
 search.addEventListener("focus", () => {
   search.style = `border: 1px solid #cccccc`;
@@ -22,6 +23,8 @@ weatherForm.addEventListener("submit", (e) => {
   messageOne.style = `color: black;`;
   messageOne.textContent = "Fetching weather...";
   forecast.textContent = null;
+  weatherIcon.setAttribute("style", "display: none");
+  search.style = `border: 1px solid #cccccc`;
 
   fetch("/weather?address=" + location).then((response) => {
     response.json().then((data) => {
@@ -32,6 +35,8 @@ weatherForm.addEventListener("submit", (e) => {
         messageOne.textContent = data.error;
       } else {
         messageOne.setAttribute("style", "color: black; display: block;");
+        weatherIcon.style = `display: block;`;
+        weatherIcon.setAttribute("src", data.weatherIcon);
         messageOne.textContent = data.location;
         //   forecast.style = `display: block;`;
         forecast.textContent = data.forecast;

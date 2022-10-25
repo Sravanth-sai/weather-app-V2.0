@@ -32,6 +32,7 @@ const forecast = (latitude, longitude, units = "m", callback) => {
     } else {
       const current = body.current;
       // console.log(response.body);
+      // console.log(current);
 
       callback(undefined, {
         // current,
@@ -39,9 +40,7 @@ const forecast = (latitude, longitude, units = "m", callback) => {
         currentTemp: current.temperature,
         feelslike: current.feelslike,
         humidity: current.humidity,
-        // icon: current.weather_icons[0],
-        // temperature: current.temperature,
-        // realFeel: current.feelslike,
+        icon: current.weather_icons[0],
         // windDirection:
       });
     }
